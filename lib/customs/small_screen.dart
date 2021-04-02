@@ -52,7 +52,10 @@ class SmallScreen extends StatelessWidget {
               Text(
                 control ? Strings.hobiler : Strings.hobies,
                 style: GoogleFonts.indieFlower(
-                    letterSpacing: 3, fontSize: 16, color: Colors.blueGrey),
+                    letterSpacing: 3,
+                    fontSize:
+                        (MediaQuery.of(context).size.width < 360) ? 14 : 16,
+                    color: Colors.blueGrey),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
@@ -67,7 +70,7 @@ class SmallScreen extends StatelessWidget {
                       child: Container(
                         height: 1,
                         width: 100,
-                        color: Colors.black,
+                        color: Colors.black45,
                       ),
                     ),
                     Text(
@@ -84,7 +87,7 @@ class SmallScreen extends StatelessWidget {
                       child: Container(
                         height: 1,
                         width: 100,
-                        color: Colors.black,
+                        color: Colors.black45,
                       ),
                     ),
                   ],

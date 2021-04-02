@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: Strings.name,
       theme: ThemeData(
+          primaryColor: Colors.brown.shade600,
           textTheme: GoogleFonts.robotoTextTheme(Theme.of(context).textTheme)),
       debugShowCheckedModeBanner: false,
       home: ResponsiveScreen(),
