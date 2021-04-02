@@ -13,19 +13,21 @@ class SmallScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          child: CircularProfileAvatar(
-            null,
-            child: Image.asset(
-              "asset/images/pp2.jpg",
-              fit: BoxFit.fill,
+        FittedBox(
+          child: Container(
+            child: CircularProfileAvatar(
+              null,
+              child: Image.asset(
+                "asset/images/pp2.jpg",
+                fit: BoxFit.fill,
+              ),
+              borderColor: Colors.brown[400],
+              borderWidth: 4,
+              elevation: 10,
+              radius: 120,
             ),
-            borderColor: Colors.brown[400],
-            borderWidth: 4,
-            elevation: 10,
-            radius: 120,
+            height: 240,
           ),
-          height: 240,
         ),
         SizedBox(
           height: 32,
@@ -56,38 +58,43 @@ class SmallScreen extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                      child: Divider(
-                    height: 1,
-                    thickness: 2,
-                  )),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
+              FittedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 1,
+                        width: 100,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
                       control ? Strings.hakkimda : Strings.aboutMe,
                       style: GoogleFonts.comfortaa(
-                          fontSize: 28,
+                          fontSize: 24,
                           letterSpacing: 5,
                           fontWeight: FontWeight.w500,
                           color: Colors.brown[700]),
                       textAlign: TextAlign.center,
                     ),
-                  ),
-                  Expanded(
-                      child: Divider(
-                    height: 1,
-                    thickness: 2,
-                  )),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 1,
+                        width: 100,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 16,
               ),
               Container(
-                padding: EdgeInsets.all(12),
+                padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(.8),
                   boxShadow: [
@@ -103,7 +110,8 @@ class SmallScreen extends StatelessWidget {
                 child: Text(control ? Strings.descTR : Strings.descEN,
                     style: GoogleFonts.comfortaa(
                         letterSpacing: 1,
-                        fontSize: 16,
+                        fontSize:
+                            (MediaQuery.of(context).size.width < 360) ? 14 : 16,
                         fontWeight: FontWeight.w400,
                         color: Colors.black.withOpacity(.7)),
                     textAlign: TextAlign.center),

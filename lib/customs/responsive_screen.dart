@@ -114,13 +114,15 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
                               Positioned.fill(
                                 child: Align(
                                   alignment: Alignment.center,
-                                  child: Text(
-                                      "Copyrights 2021 © Mete Çağrı TAŞPINAR",
-                                      style: GoogleFonts.comfortaa(
-                                          letterSpacing: 5,
-                                          color: Colors.brown[200],
-                                          fontSize: 10),
-                                      textAlign: TextAlign.center),
+                                  child: FittedBox(
+                                    child: Text(
+                                        "Copyrights 2021 © Mete Çağrı TAŞPINAR",
+                                        style: GoogleFonts.comfortaa(
+                                            letterSpacing: 5,
+                                            color: Colors.brown[200],
+                                            fontSize: 10),
+                                        textAlign: TextAlign.center),
+                                  ),
                                 ),
                               )
                             ],

@@ -23,6 +23,7 @@ class Strings {
   static const ig = "https://www.instagram.com/meteecagri/";
   static const tw = "https://twitter.com/meteecagri";
   static const lin = "https://www.linkedin.com/in/mctaspinar/";
+  static const ghub = "https://github.com/mctaspinar";
   static const cvGoster = "Özgeçmişimi Görüntüle";
   static const viewResume = "View My Resume";
 }

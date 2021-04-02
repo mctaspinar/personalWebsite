@@ -143,6 +143,19 @@ class _LargeScreenState extends State<LargeScreen> {
                       color: Colors.lightBlue.shade900,
                     ),
                   ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  InkWell(
+                    hoverColor: Colors.transparent,
+                    onTap: () => _launchURL(Strings.ghub),
+                    child: Image.asset(
+                      "asset/images/ghub.png",
+                      height: 44,
+                      width: 44,
+                      color: Colors.black87,
+                    ),
+                  ),
                 ],
               ),
             ],
