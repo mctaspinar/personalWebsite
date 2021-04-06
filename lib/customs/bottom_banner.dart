@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_website/utils/strings.dart';
+import 'package:url_launcher/link.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:url_launcher/url_launcher.dart';
+
+import '../customs/social_link.dart';
+import '../utils/strings.dart';
 
 class BottomBanner extends StatefulWidget {
   final bool control;
@@ -12,14 +14,6 @@ class BottomBanner extends StatefulWidget {
 }
 
 class _BottomBannerState extends State<BottomBanner> {
-  _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
   var colorOfInk;
   var size = 900;
   @override
@@ -37,33 +31,39 @@ class _BottomBannerState extends State<BottomBanner> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          InkWell(
-            hoverColor: Colors.transparent,
-            onTap: () => _launchURL(Strings.cvLink),
-            onHover: (value) {
-              setState(() {
-                !value
-                    ? colorOfInk = Colors.brown[400]
-                    : colorOfInk = Colors.brown[700];
-              });
-            },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: colorOfInk,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: FittedBox(
-                  child: Text(
-                    widget.control ? Strings.cvGoster : Strings.viewResume,
-                    style: GoogleFonts.comfortaa(
-                        fontSize: 18, color: Colors.white),
-                    textAlign: TextAlign.center,
+          Link(
+            uri: Uri.parse(Strings.cvLink),
+            target: LinkTarget.blank,
+            builder: (context, goToLink) {
+              return InkWell(
+                hoverColor: Colors.transparent,
+                onTap: goToLink,
+                onHover: (value) {
+                  setState(() {
+                    !value
+                        ? colorOfInk = Colors.brown[400]
+                        : colorOfInk = Colors.brown[700];
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: colorOfInk,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: FittedBox(
+                      child: Text(
+                        widget.control ? Strings.cvGoster : Strings.viewResume,
+                        style: GoogleFonts.comfortaa(
+                            fontSize: 18, color: Colors.white),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
           SizedBox(
             height: 48,
@@ -83,73 +83,7 @@ class _BottomBannerState extends State<BottomBanner> {
             height: 15,
           ),
           FittedBox(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  onTap: () => _launchURL(Strings.fb),
-                  child: Image.asset(
-                    "asset/images/fb.png",
-                    height: 48,
-                    width: 48,
-                    color: Colors.blueAccent,
-                  ),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  onTap: () => _launchURL(Strings.ig),
-                  child: Image.asset(
-                    "asset/images/ig.png",
-                    height: 48,
-                    width: 48,
-                    color: Colors.pink.withOpacity(.6),
-                  ),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  onTap: () => _launchURL(Strings.tw),
-                  child: Image.asset(
-                    "asset/images/twitter.png",
-                    height: 48,
-                    width: 48,
-                    color: Colors.blue.shade400,
-                  ),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  onTap: () => _launchURL(Strings.lin),
-                  child: Image.asset(
-                    "asset/images/lin.png",
-                    height: 48,
-                    width: 48,
-                    color: Colors.lightBlue.shade900,
-                  ),
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  onTap: () => _launchURL(Strings.ghub),
-                  child: Image.asset(
-                    "asset/images/ghub.png",
-                    height: 44,
-                    width: 44,
-                    color: Colors.black87,
-                  ),
-                ),
-              ],
-            ),
+            child: SocialLink(),
           ),
         ],
       ),

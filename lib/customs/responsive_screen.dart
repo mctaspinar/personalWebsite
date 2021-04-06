@@ -60,32 +60,32 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
                                 child: Container(
                                   child: Row(
                                     children: [
-                                      TextButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            langControl = true;
-                                          });
-                                        },
-                                        child: Text("TR",
-                                            style: GoogleFonts.comfortaa(
-                                                fontSize: 18,
-                                                color: Colors.brown[200])),
-                                      ),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              langControl = true;
+                                            });
+                                          },
+                                          hoverColor: Colors.transparent,
+                                          child: Text("TR",
+                                              style: GoogleFonts.comfortaa(
+                                                  fontSize: 18,
+                                                  color: Colors.brown[200]))),
                                       Text("  |  ",
                                           style: GoogleFonts.comfortaa(
                                               fontSize: 14,
                                               color: Colors.brown[200])),
-                                      TextButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            langControl = false;
-                                          });
-                                        },
-                                        child: Text("EN",
-                                            style: GoogleFonts.comfortaa(
-                                                fontSize: 18,
-                                                color: Colors.brown[200])),
-                                      ),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              langControl = false;
+                                            });
+                                          },
+                                          hoverColor: Colors.transparent,
+                                          child: Text("EN",
+                                              style: GoogleFonts.comfortaa(
+                                                  fontSize: 18,
+                                                  color: Colors.brown[200]))),
                                     ],
                                   ),
                                 ),
@@ -139,39 +139,3 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
     );
   }
 }
-
-/*
-InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            langControl = true;
-                                          });
-                                        },
-                                        hoverColor: Colors.transparent,
-                                        child: Text("TR",
-                                            style: GoogleFonts.comfortaa(
-                                                fontSize: 18,
-                                                color: Colors.brown[200]))),
-                                    Text("  |  ",
-                                        style: GoogleFonts.comfortaa(
-                                            fontSize: 14,
-                                            color: Colors.brown[200])),
-                                    InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            langControl = false;
-                                          });
-                                        },
-                                        hoverColor: Colors.transparent,
-                                        child: Text("EN",
-                                            style: GoogleFonts.comfortaa(
-                                                fontSize: 18,
-                                                color: Colors.brown[200]))),
-
-
-
-
-
-                                               
-
- */
