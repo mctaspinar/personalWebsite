@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 
 import '../customs/social_link.dart';
