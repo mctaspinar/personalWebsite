@@ -15,7 +15,7 @@ class Strings {
       " I like to research and learn new technologies. I am currently working on the Dart language and Flutter, which is the framework of this language."
       " With this technology, I develop IOS, Android and web applications.";
   static const cvLink =
-      "https://drive.google.com/file/d/1JwZftpovtDlhf0IuiC0m3raPZnGzFUXr/view?usp=sharing";
+      "https://drive.google.com/file/d/1RNIV69dO9SxXRzv0-aAPYZRo1Ggp-SDU/view?usp=sharing";
 
   static const sosyal = "Sosyal Medya Hesaplarım";
   static const social = "Social Media Accounts";
