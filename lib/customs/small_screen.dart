@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+import 'package:flutter_website/customs/description_widget.dart';
 import 'package:flutter_website/utils/strings.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,6 +12,8 @@ class SmallScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _screenSize = MediaQuery.of(context).size;
+
     return Column(
       children: [
         FittedBox(
@@ -33,7 +36,7 @@ class SmallScreen extends StatelessWidget {
           height: 32,
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 64),
+          padding: EdgeInsets.symmetric(horizontal: 48),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -94,31 +97,40 @@ class SmallScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 16,
+                height: 20,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(.8),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(2.0, 0.0), //(x,y)
-                      blurRadius: 10.0,
-                    ),
-                  ],
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                ),
-                child: Text(control ? Strings.descTR : Strings.descEN,
-                    style: GoogleFonts.comfortaa(
-                        letterSpacing: 1,
-                        fontSize:
-                            (MediaQuery.of(context).size.width < 360) ? 14 : 16,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black.withOpacity(.7)),
-                    textAlign: TextAlign.center),
+              Description(
+                control: control,
+                screenSize: _screenSize.width,
+                fontSize: (_screenSize.width < 360) ? 14 : 16,
               ),
+              SizedBox(
+                height: 5,
+              ),
+              // Container(
+              //   padding: EdgeInsets.all(10),
+              //   decoration: BoxDecoration(
+              //     color: Colors.white.withOpacity(.8),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.grey,
+              //         offset: Offset(2.0, 0.0), //(x,y)
+              //         blurRadius: 10.0,
+              //       ),
+              //     ],
+              //     shape: BoxShape.rectangle,
+              //     borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              //   ),
+              //   child: Text(control ? Strings.descTR : Strings.descEN,
+              //       style: GoogleFonts.comfortaa(
+              //           letterSpacing: 1,
+              //           height: 1.5,
+              //           fontSize:
+              //               (MediaQuery.of(context).size.width < 360) ? 14 : 16,
+              //           fontWeight: FontWeight.w400,
+              //           color: Colors.black.withOpacity(.7)),
+              //       textAlign: TextAlign.center),
+              // ),
               BottomBanner(
                 control: control,
               )
