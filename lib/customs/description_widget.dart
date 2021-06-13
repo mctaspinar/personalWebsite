@@ -26,14 +26,21 @@ class Description extends StatelessWidget {
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
       ),
-      child: Text(control ? Strings.descTR : Strings.descEN,
-          style: GoogleFonts.comfortaa(
-              letterSpacing: 1,
-              height: 1.5,
-              fontSize: fontSize, //24 for large screen
-              fontWeight: FontWeight.w400,
-              color: Colors.black.withOpacity(.7)),
-          textAlign: TextAlign.center),
+      child: SelectableText(
+        control ? Strings.descTR : Strings.descEN,
+        style: GoogleFonts.comfortaa(
+            letterSpacing: 1,
+            height: 1.5,
+            fontSize: fontSize, //24 for large screen
+            fontWeight: FontWeight.w400,
+            color: Colors.black.withOpacity(.7)),
+        toolbarOptions: ToolbarOptions(
+          copy: true,
+          selectAll: true,
+        ),
+        cursorRadius: Radius.circular(5),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
